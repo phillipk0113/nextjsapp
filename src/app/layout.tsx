@@ -30,9 +30,9 @@ export default function RootLayout({
         <SidebarProvider>
           {/* Sidebar component */}
           <Sidebar collapsible="icon">
-            <SidebarTrigger />
+            
           </Sidebar>
-
+          <SidebarTrigger />
           {/* Main content area */}
           {children}
         </SidebarProvider>
