@@ -27,6 +27,7 @@ import {
 } from "@/components/ui/sidebar"
 import { lusitana } from '@/app/ui/fonts';
 import { LibraryBig, Github, FileChartColumnIncreasing, FileCode } from 'lucide-react';
+import Image from 'next/image';
 
 
 
@@ -46,8 +47,19 @@ export default function RootLayout({
         <SidebarProvider>
           {/* Sidebar component */}
           <Sidebar collapsible="offcanvas">
-            <SidebarHeader></SidebarHeader>
-            <SidebarContent>
+            <SidebarHeader className="flex flex-row items-center bg-stone-400 min-h-16">
+              <Image 
+                src='/Logo.jpg'
+                height={35}
+                width={35}
+                alt="Logo with initials PK"
+                style={{
+                  borderRadius: '30%'
+                }}
+              />
+              <h1 className='font-bold text-xl text-white'>Phillip's Catalog</h1>
+            </SidebarHeader>
+            <SidebarContent className="bg-stone-200">
               <SidebarGroup>
                 <SidebarGroupLabel>
                   <LibraryBig/>
@@ -60,7 +72,19 @@ export default function RootLayout({
                   <Github/>
                   <h2 className="pt-1">GitHub Projects</h2>
                 </SidebarGroupLabel>
-                <SidebarGroupContent>Here is the content</SidebarGroupContent>
+                <SidebarGroupContent>
+                  <ul>
+                    <li>
+                      <a className="hover:text-amber-900" href="https://github.com/phillipk0113/nextjsapp">This Website</a>
+                    </li>
+                    <li>
+                      <a className="hover:text-amber-900" href="https://github.com/phillipk0113/nextjs-dashboard-project">Next.js Dashboard Tutorial</a>
+                    </li>
+                    <li>
+                      <a className="hover:text-amber-900" href="https://github.com/phillipk0113/rag-agent-chatbot">RAG Website Chatbot</a>
+                    </li>
+                  </ul>
+                </SidebarGroupContent>
               </SidebarGroup>
               <SidebarGroup>
                 <SidebarGroupLabel>
@@ -72,14 +96,14 @@ export default function RootLayout({
               <SidebarGroup>
                 <SidebarGroupLabel className="align-middle">
                   <FileCode/>
-                  <h2 className="pt-1">Websites</h2>
+                  <h2 className="pt-1">Professional Websites</h2>
                 </SidebarGroupLabel>
                 <SidebarGroupContent>
-                  <a href="https://meridianexecutivelimo.com">Meridian Exec Limousines</a>
+                  <a href="https://meridianexecutivelimo.com">Meridian Limousines</a>
                 </SidebarGroupContent>
               </SidebarGroup>
             </SidebarContent>
-            <SidebarFooter></SidebarFooter>
+            <SidebarFooter className="bg-stone-400 min-h-16"></SidebarFooter>
           </Sidebar>
           <SidebarTrigger />
           {/* Main content area */}
