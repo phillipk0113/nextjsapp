@@ -61,7 +61,8 @@ export default {
   				ring: 'hsl(var(--sidebar-ring))'
   			},
 			'earth-green': '#8d9884',
-			'sand': '#c7a981'
+			'sand': '#c7a981',
+			'corduroy': '#5f6f64'
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

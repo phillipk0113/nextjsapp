@@ -1,0 +1,39 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            Int       @id @default(autoincrement())
+  username      String    @unique @db.VarChar(50)
+  email         String    @unique @db.VarChar(255)
+  password_hash String    @db.VarChar(255)
+  first_name    String?   @db.VarChar(50)
+  last_name     String?   @db.VarChar(50)
+  createdAt     DateTime? @default(now()) @map("created_at") @db.Timestamptz(6)
+  updated_at    DateTime? @default(now()) @db.Timestamptz(6)
+  is_admin      Boolean?  @default(false)
+  travel_images Travel[]
+
+  @@map("users")
+}
+
+model Travel {
+  id          Int       @id @default(autoincrement())
+  title       String    @db.VarChar(100)
+  description String?
+  imageUrl    String    @map("image_url") @db.VarChar(255)
+  city        String?   @db.VarChar(100)
+  country     String?   @db.VarChar(100)
+  dateTaken   DateTime? @map("date_taken") @db.Date
+  userId      Int?      @map("user_id")
+  createdAt   DateTime? @default(now()) @map("created_at") @db.Timestamptz(6)
+  updated_at  DateTime? @default(now()) @db.Timestamptz(6)
+  users       User?     @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@map("travel_images")
+}
