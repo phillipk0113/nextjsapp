@@ -1,4 +1,5 @@
 import Image from 'next/image';
+
 import { 
   Carousel, 
   CarouselContent, 
@@ -43,9 +44,9 @@ export default function Home() {
                 }}
                 className='md:w-200 md:h-150'
               />
-          <div className='flex flex-col max-w-sm md:max-w-md lg:max-w-lg pt-8 md:pt-0 pl-0 md:pl-10'>
+          <div className='flex flex-col max-w-sm md:max-w-md lg:max-w-lg pt-4 md:pt-0 pl-0 md:pl-10'>
             <h2 className='font-bold text-left'>Bio</h2>
-            <p className='text-left'>
+            <p className='text-left min-w-96'>
               Hi! My name is Phillip Konstantinov. This website is a personal project. It is to showcase some of the fun things that I have done, share some of my thoughts, and showcase 
               some of the software development that I have been working on. I am an early career professional who has Bachelor's degrees in Computer Science and Finance from Barrett, 
               the Honors College at Arizona State university. Most of my professional experience is within consulting with a bit of experience as a front-end developer. I am a Phoenix, 

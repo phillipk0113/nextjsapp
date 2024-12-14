@@ -26,8 +26,9 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar"
 import { lusitana } from '@/app/ui/fonts';
-import { LibraryBig, Github, FileChartColumnIncreasing, FileCode } from 'lucide-react';
+import { LibraryBig, Github, FileChartColumnIncreasing, FileCode, FileUser } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 
 
@@ -48,15 +49,18 @@ export default function RootLayout({
           {/* Sidebar component */}
           <Sidebar collapsible="offcanvas">
             <SidebarHeader className="flex flex-row items-center bg-stone-400 min-h-16">
-              <Image 
-                src='/Logo.jpg'
-                height={35}
-                width={35}
-                alt="Logo with initials PK"
-                style={{
-                  borderRadius: '30%'
-                }}
-              />
+              <Link href='/'>
+                <Image 
+                  src='/Logo.jpg'
+                  height={35}
+                  width={35}
+                  alt="Logo with initials PK"
+                  style={{
+                    borderRadius: '30%'
+                  }}
+                />
+              </Link>
+              
               <h1 className='font-bold text-xl text-white'>Phillip's Catalog</h1>
             </SidebarHeader>
             <SidebarContent className="bg-stone-200">
@@ -73,15 +77,15 @@ export default function RootLayout({
                   <h2 className="pt-1">GitHub Projects</h2>
                 </SidebarGroupLabel>
                 <SidebarGroupContent>
-                  <ul>
+                  <ul className="">
                     <li>
-                      <a className="hover:text-amber-900" href="https://github.com/phillipk0113/nextjsapp">This Website</a>
+                      <Link className="hover:text-amber-900 text-xs" href="https://github.com/phillipk0113/nextjsapp">This Website</Link>
                     </li>
                     <li>
-                      <a className="hover:text-amber-900" href="https://github.com/phillipk0113/nextjs-dashboard-project">Next.js Dashboard Tutorial</a>
+                      <Link className="hover:text-amber-900 text-xs" href="https://github.com/phillipk0113/nextjs-dashboard-project">Next.js Dashboard Tutorial</Link>
                     </li>
                     <li>
-                      <a className="hover:text-amber-900" href="https://github.com/phillipk0113/rag-agent-chatbot">RAG Website Chatbot</a>
+                      <Link className="hover:text-amber-900 text-xs" href="https://github.com/phillipk0113/rag-agent-chatbot">RAG Website Chatbot</Link>
                     </li>
                   </ul>
                 </SidebarGroupContent>
@@ -99,8 +103,17 @@ export default function RootLayout({
                   <h2 className="pt-1">Professional Websites</h2>
                 </SidebarGroupLabel>
                 <SidebarGroupContent>
-                  <a href="https://meridianexecutivelimo.com">Meridian Limousines</a>
+                  <Link className='hover:text-amber-900 text-xs' href="https://meridianexecutivelimo.com">Meridian Limousines</Link>
                 </SidebarGroupContent>
+              </SidebarGroup>
+              <SidebarGroup>
+                <SidebarGroupLabel>
+                    <FileUser/>
+                    <h2 className='pt-1' >My Resume</h2>
+                  </SidebarGroupLabel>
+                  <SidebarGroupContent>
+                    <Link href="/resume" className="hover:text-amber-900 text-xs">Link to Resume</Link>
+                  </SidebarGroupContent>
               </SidebarGroup>
             </SidebarContent>
             <SidebarFooter className="bg-stone-400 min-h-16"></SidebarFooter>
